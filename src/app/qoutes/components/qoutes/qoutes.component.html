@@ -1,0 +1,35 @@
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-8 col-sm-8 mb-3 offset-2">
+        <div class="card">
+          <div class="card-header">
+            <h5>What Qoute is on your mind ?</h5>
+          </div>
+          <div class="card-body">
+            <div role="form">
+              <div class="form-group col-8 offset-2">
+                <textarea #qoute class="form-control" rows="3" cols="8" [(ngModel)]="qouteText" name="qouteText"></textarea>
+              </div>
+              <div class="form-group text-center">
+                <button class="btn btn-primary" (click)="createNewQoute()" [disabled]="qouteText == ''">Create a new
+                  qoute</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="card mb-3 col-5 list-card" id="quote-cards" style="max-width: 18rem;" *ngFor="let qoute of qouteList; let i = index"
+        (click)="removeQoute(i)">
+        <div class="card-body">
+          <h6>{{ qoute.text }}</h6>
+        </div>
+        <div class="card-footer text-muted">
+          <small>Created on {{ qoute.timeCreated }}</small>
+        </div>
+      </div>
+    </div>
+  </div>
+  
